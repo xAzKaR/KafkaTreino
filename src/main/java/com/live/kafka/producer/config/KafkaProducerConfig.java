@@ -30,7 +30,7 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String, CarDto> CarProducerFactory() {
+    public ProducerFactory<String, CarDto> carProducerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -40,6 +40,6 @@ public class KafkaProducerConfig {
 
     @Bean
     public KafkaTemplate<String, CarDto> carafkaTemplate(){
-        return new KafkaTemplate<>(CarProducerFactory());
+        return new KafkaTemplate<>(carProducerFactory());
     }
 }
